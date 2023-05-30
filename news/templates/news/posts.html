@@ -1,0 +1,20 @@
+{% extends 'news/default.html' %}
+{% load static %}
+
+{% block MyContent %}
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Featured blog post-->
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                          <div class="card-body">
+                                <div class="small text-muted">Публикация {{ ps.pk }} {{ ps.dataCreations }}</div>
+                                <h2 class="card-title">{{ ps.title }}</h2>
+                                <p class="card-text">{{ ps.text }}</p>
+                          </div>
+
+                    </div>
+                </div>
+
+
+{% endblock %}

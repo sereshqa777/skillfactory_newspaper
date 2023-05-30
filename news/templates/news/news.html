@@ -1,0 +1,56 @@
+{% extends 'news/default.html' %}
+{% load static %}
+
+{% block MyContent %}
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Featured blog post-->
+                    {% for post_n in newslist %}
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                          <div class="card-body">
+                                <div class="small text-muted">Публикация {{ post_n.pk }} {{ post_n.dataCreations }}</div>
+                                <h2 class="card-title">{{ post_n.title }}</h2>
+                                <p class="card-text">{{ post_n.text }}</p>
+                                <a class="btn btn-primary" href="/post/{{ post_n.pk }}">Подробнее →</a>
+                          </div>
+
+                    </div>
+                  {% endfor %}
+                </div>
+                 <!-- Search widget-->
+                 <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">Лучший пост, автор поста и его рейтинг</div>
+                        <div class="card-body">
+                                {% for post_n in newslist %}
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="/post/{{ post_n.pk }}"><b>{{ post_n.title }}</b></a></br> Автор: {{ post_n.author }} Рейтинг: {{ post_n.rating }}</li>
+
+                                </ul>
+                                {% endfor %}
+
+                        </div>
+                    </div>
+                     <div class="card mb-4">
+                        <div class="card-header">Лучший комментатор новостей и его рейтинг</div>
+                        <div class="card-body">
+                                            <ul class="list-unstyled mb-0">
+                                    <li><a href="#!"><b>Тут комментарий</b></a></br> Автор: User1 Рейтинг: 11</li>
+
+                                </ul>
+                        </div>
+                    </div>
+                     <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+
+{% endblock %}

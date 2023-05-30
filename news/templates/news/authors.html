@@ -1,0 +1,7 @@
+{% extends 'news/default.html' %}
+{% load static %}
+{% block MyContent %}
+{% for author in  Authors %}
+<p> Автор {{ author.authorUser }} </p>
+{% endfor %}
+{% endblock %}
